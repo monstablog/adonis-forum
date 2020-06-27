@@ -1,0 +1,113 @@
+body {
+    background: url('https://nnu.ng/sitefront/img/bg.png') repeat;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 14px;
+}
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.main-content {
+    background: #f6f6ed;
+    margin-top:12px;
+    padding: 3px;
+    border: 1px solid #444;
+    border-radius: 10px;
+}
+.main-body{
+    background: #f6f6ed;
+    padding: 3px;
+    border: 1px solid #444;
+    border-radius: 10px;
+    margin-top:11px;
+}
+.main-log{
+	margin-top:-30px;
+    background: #F6F6ED;
+    border-radius: 10px;
+    padding: 0;
+    text-align: center;
+    overflow: hidden;
+}
+.main-Left {
+    padding: 5px 0;
+    margin: 0;
+}
+.main-Left-r {
+    padding: 5px 0;
+    margin: 0;
+    border-top: 1px solid #444;
+    border-bottom: 1px solid #444;
+    background-color: #E8ECE1;
+}
+.main-Left li {
+    display: inline-block;
+    position: relative;
+}
+.main-Left a {
+    color: #000;
+    font-weight: 700;
+    display: inline-block;
+    padding: 0 5px;
+    line-height: 1.8;
+    font-size: 14px;
+    text-decoration: none;
+}
+.main-Left a:hover {
+    text-decoration: underline;
+}
+.main-Left-r li {
+    display: inline-block;
+    position: relative;
+}
+.main-Left-r a {
+    color: #000;
+    font-weight: 700;
+    display: inline-block;
+    padding: 0 5px;
+    line-height: 1.8;
+    font-size: 14px;
+}
+.main-Left-anon {
+    padding: 5px 0;
+    margin: 0;
+}
+.main-Left-anon li {
+    display: inline-block;
+    position: relative;
+}
+.main-Left-anon a {
+    font-weight: 700;
+    display: inline-block;
+    padding: 0 5px;
+    line-height: 1.8;
+    font-size: 30px;
+}
+.main-login{
+    margin-top: 9px;
+    margin-bottom: 9px;
+}
+.main-login h2{
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+}
+.main-body-post{
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 9px;
+    margin-bottom: 9px;
+}
+.main-login-body{
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 9px;
+    margin-bottom: 9px;
+}
+.main-login-body a{
+    text-align: center;
+    font-size: 12px;
+}

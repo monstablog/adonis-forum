@@ -1,0 +1,80 @@
+.nav-bar .main-nav {
+    padding: 0;
+}
+.main-nav{
+    background: #F6F6ED;
+    padding: 0;
+    text-align: center;
+    margin: 10px -3px;
+    overflow: hidden;
+}
+.main-nav-real{
+    background: #F6F6ED;
+    border-radius: 10px;
+    padding: 0;
+    text-align: center;
+    margin: 10px 0;
+    overflow: hidden;
+
+}
+.header-main {
+    background: #f6f6ed;
+    padding: 3px;
+    border: 1px solid #444;
+    border-radius: 10px;
+}
+.clearfix {
+    content: "";
+    display: flow-root;
+    clear: both;
+}
+.col6 {
+    width: 46%;
+    float: left;
+}
+.main-Right {
+    margin: 0px;
+    padding: 0px;
+}
+.main-Right ul{
+	display:inline-block;
+}
+.main-Right li {
+    list-style: none;
+    display: block;
+    float: left;
+}
+.main-Right li a {
+    text-decoration: none;
+    color: #186617;
+}
+.main-Right li a img {
+    width: 80px;
+    height: 80px;
+}
+.main-left-anon h1{
+    margin-top: -15px;
+}
+.m{
+	color: #cf3333;
+}
+.navigation-search{
+    text-align: center;
+}
+input[type=text]{
+    margin: 0px auto;
+    min-width: 90px;
+    width: 50%;
+    height: 19px;
+}
+input[type=text], input[type=submit]{
+    border: 1px solid #c8ccc0;
+    border-radius: 12px;
+    background: #fff;
+    padding: 2px 7px;
+}
+input[type=submit]{
+    cursor:pointer;
+    height: 25px;
+    width: 7%;
+}
