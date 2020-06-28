@@ -10,14 +10,11 @@
 <div class="main-body">
     <div class="clearfix">
         <div class="main-body-post">
-            
-            >> <a href="">Gain Direct Admission to Canada</a> <<	
+            @each(post in posts)
+        >> <a href="{{ post.slug }}">{{ post.subject }}</a> <<	
             <br>
             <br>
-            >> <a href="">This is a New Forum</a> <<
-            <br>
-            <br>
-            >> <a href="">This is just testing things around</a> <<
+            @endeach
         </div>	
     </div>
     

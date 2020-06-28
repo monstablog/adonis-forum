@@ -1,0 +1,45 @@
+@layout('layouts.auth')
+
+@section('title')
+    Login - Naijaswift Forum
+@endsection
+
+
+@section('content')
+<div class="main-login">
+    <h2>Register To Join Naijaswift Forum</h2>
+</div>
+    <div class="main-body">
+        <div class="clearfix">
+            <div class="main-login-body">
+                @if(flashMessage('loginError'))
+                    <span class="form-error">{{ flashMessage('loginError') }}</span>
+                @endif
+                
+            <form action="{{ route('enter') }}" method="POST">
+                {{ csrfField() }}
+                <br>
+                <input type="email" name="email" value="{{ old('email', '') }}" placeholder=" Email ">
+                <br>
+                @if(hasErrorFor('email'))
+                    <span class="form-error">
+                        {{ getErrorFor('email') }}
+                    </span>
+                @endif
+                <br>
+                <input type="password" name="password" placeholder=" Password ">
+                <br>
+                @if(hasErrorFor('password'))
+                    <span class="form-error">
+                        {{ getErrorFor('password') }}
+                    </span>
+                @endif
+                <br>
+                <input type="submit" value="Login">
+                </form>
+                <br>
+                <p>Do Not Have Account?</p><a href="/login">Click Here To Login</a>
+            </div>
+        </div>
+    </div>
+@endsection

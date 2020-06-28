@@ -1,0 +1,48 @@
+@layout('layouts.auth')
+
+@section('title')
+    Register - Naijaswift Forum
+@endsection
+
+
+@section('content')
+<div class="main-login">
+    <h2>Register To Join Naijaswift Forum</h2>
+</div>
+    <div class="main-body">
+        <div class="clearfix">
+            <div class="main-login-body">
+            <form action="{{ route('register') }}" method="POST">
+                {{ csrfField() }}
+                <input type="text" name="username" value="{{ old('username', '') }}" placeholder=" Username ">
+                <br>
+                @if(hasErrorFor('username'))
+                    <span class="form-error">
+                        {{ getErrorFor('username') }}
+                    </span>
+                @endif
+                <br>
+                <input type="email" name="email" value="{{ old('email', '') }}" placeholder=" Email ">
+                <br>
+                @if(hasErrorFor('email'))
+                    <span class="form-error">
+                        {{ getErrorFor('email') }}
+                    </span>
+                @endif
+                <br>
+                <input type="password" name="password" placeholder=" Password ">
+                <br>
+                @if(hasErrorFor('password'))
+                    <span class="form-error">
+                        {{ getErrorFor('password') }}
+                    </span>
+                @endif
+                <br>
+                <input type="submit" value="Register">
+                </form>
+                <br>
+                <p>Do Not Have Account?</p><a href="/login">Click Here To Login</a>
+            </div>
+        </div>
+    </div>
+@endsection

@@ -61,20 +61,47 @@
 .navigation-search{
     text-align: center;
 }
-input[type=text]{
+.navigation-search input[type=text]{
     margin: 0px auto;
     min-width: 90px;
     width: 50%;
     height: 19px;
 }
-input[type=text], input[type=submit]{
+.main-login-body input[type=text], input[type=submit], input[type=password], input[type=email]{
+    border: 1px solid #c8ccc0;
+    width: 30%;
+    height: 30px;
+    border-radius: 12px;
+    background: #fff;
+    padding: 2px 7px;
+}
+input[type=text], input[type=submit], input[type=password], input[type=email]{
     border: 1px solid #c8ccc0;
     border-radius: 12px;
     background: #fff;
     padding: 2px 7px;
 }
+.main-login-body input[type=submit]{
+    cursor:pointer;
+    height: 35px;
+    width: 10%;
+}
+.main-login-body input[type=submit]:hover {
+    background:#e8ece0;
+
+}
+
 input[type=submit]{
     cursor:pointer;
     height: 25px;
     width: 7%;
+}
+
+input[type=submit]:hover{
+    background:#e8ece0;
+}
+
+.form-error{
+    color: red;
+    font-size: 12px;
 }

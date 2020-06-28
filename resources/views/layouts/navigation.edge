@@ -11,15 +11,24 @@
                 </div>
                 <div class="main-log">
                     <ul class="main-Left">
-                    
-                        Welcome, Guest
-                        <br>
-                        <li><a href="login.html">Login</a></li> |
-                        <li><a href="register.html">Register</a></li>
-                        <br>
-                        <b>Stats:</b> 150,998 Members, 120,892 Topics
-                        <br>
-                        <b>Date:</b> August 30, 2019 5:32PM
+                        @loggedIn
+                            Welcome, {{ auth.user.username }}
+                            <br>
+                            <b>Stats:</b> 150,998 Members, 120,892 Topics
+                            <br>
+                            <b>Date:</b> August 30, 2019 5:32PM
+                            <br>
+                            <li><a href="/logout">Log Out</a></li>
+                        @else
+                            Welcome, Guest
+                            <br>
+                            <li><a href="/login">Login</a></li> |
+                            <li><a href="/register">Register</a></li>
+                            <br>
+                            <b>Stats:</b> 150,998 Members, 120,892 Topics
+                            <br>
+                            <b>Date:</b> August 30, 2019 5:32PM
+                        @endloggedIn
                     </ul>
 
                 </div>
