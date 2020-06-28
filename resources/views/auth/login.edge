@@ -12,11 +12,12 @@
     <div class="main-body">
         <div class="clearfix">
             <div class="main-login-body">
+                @include('includes.notification')
                 @if(flashMessage('loginError'))
                     <span class="form-error">{{ flashMessage('loginError') }}</span>
                 @endif
                 
-            <form action="{{ route('enter') }}" method="POST">
+            <form action="{{ route('login') }}" method="POST">
                 {{ csrfField() }}
                 <br>
                 <input type="email" name="email" value="{{ old('email', '') }}" placeholder=" Email ">
@@ -35,10 +36,14 @@
                     </span>
                 @endif
                 <br>
+                <input type="checkbox" name="remember">
+                Remeber Me
+                <br>
+                <br>
                 <input type="submit" value="Login">
                 </form>
                 <br>
-                <p>Do Not Have Account?</p><a href="/login">Click Here To Login</a>
+                <p>Do Not Have Account?</p><a href="/register">Click Here To Register</a> OR <a href="/password/reset">Click Here To Reset Password</a>
             </div>
         </div>
     </div>

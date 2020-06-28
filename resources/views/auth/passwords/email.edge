@@ -1,0 +1,36 @@
+@layout('layouts.auth')
+
+@section('title')
+    Password Reset - Naijaswift Forum
+@endsection
+
+
+@section('content')
+<div class="main-login">
+    <h2>Reset Password</h2>
+</div>
+    <div class="main-body">
+        <div class="clearfix">
+            <div class="main-login-body">
+                @include('includes.notification')
+                <form action="/password/email" method="POST">
+                    {{ csrfField() }}
+                    <br>
+                    
+                    <input type="email" name="email" value="{{ old('email', '') }}" placeholder=" Email ">
+                    <br>
+                    @if(hasErrorFor('email'))
+                        <span class="form-error">
+                            {{ getErrorFor('email') }}
+                        </span>
+                    @endif
+                    <br>
+                    <br>
+                    <input type="submit" value="Reset Password" style="width:11%;">
+                </form>
+                <br>
+                <p>Have Account?</p><a href="/login">Click Here To Login</a>
+            </div>
+        </div>
+    </div>
+@endsection

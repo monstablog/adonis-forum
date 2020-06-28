@@ -1,0 +1,7 @@
+@if(flashMessage('notification'))
+<div class="form-error is-{{ flashMessage('notification.type') }}">
+    <span class="form-error">
+        {{ flashMessage('notification.message') }}
+    </span>  
+</div>
+@endif

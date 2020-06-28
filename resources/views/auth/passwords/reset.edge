@@ -1,29 +1,25 @@
 @layout('layouts.auth')
 
 @section('title')
-    Register - Naijaswift Forum
+    Password Reset - Naijaswift Forum
 @endsection
 
 
 @section('content')
 <div class="main-login">
-    <h2>Register To Join Naijaswift Forum</h2>
+    <h2>Reset Password</h2>
 </div>
     <div class="main-body">
         <div class="clearfix">
             <div class="main-login-body">
                 @include('includes.notification')
-                <form action="{{ route('register') }}" method="POST">
+                <form action="/password/reset" method="POST">
                     {{ csrfField() }}
+
+                    <input type="hidden" name="token" value="{{ token }}">
+
                     <br>
-                    <input type="text" name="username" value="{{ old('username', '') }}" placeholder=" Username ">
-                    <br>
-                    @if(hasErrorFor('username'))
-                        <span class="form-error">
-                            {{ getErrorFor('username') }}
-                        </span>
-                    @endif
-                    <br>
+                    
                     <input type="email" name="email" value="{{ old('email', '') }}" placeholder=" Email ">
                     <br>
                     @if(hasErrorFor('email'))
@@ -40,7 +36,16 @@
                         </span>
                     @endif
                     <br>
-                    <input type="submit" value="Register">
+                    <input type="password" name="password_confirmation" placeholder=" Confirm Password ">
+                    <br>
+                    @if(hasErrorFor('password_confirmation'))
+                        <span class="form-error">
+                            {{ getErrorFor('password_confirmation') }}
+                        </span>
+                    @endif
+                    <br>
+                    <br>
+                    <input type="submit" value="Update Password" style="width:13%;">
                 </form>
                 <br>
                 <p>Have Account?</p><a href="/login">Click Here To Login</a>

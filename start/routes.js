@@ -20,12 +20,18 @@ const Route = use('Route')
 
 Route.get('/','PostController.home')
 
-Route.on('/register').render('auth.register')
+Route.get('/register', 'Auth/RegisterController.showRegisterForm')
 Route.post('/register', 'Auth/RegisterController.create').validator('CreateUser').as('register')
+Route.get('/register/confirm/:token', 'Auth/RegisterController.confirmEmail')
 
 
-Route.get('/login', 'Auth/LoginController.showForm')
-Route.post('/login', 'Auth/LoginController.login').validator('LoginUser').as('enter')
+Route.get('/login', 'Auth/LoginController.showLoginForm')
+Route.post('/login', 'Auth/LoginController.login').validator('LoginUser').as('login')
+
+Route.get('/password/reset', 'Auth/PasswordResetController.showLinkResetForm')
+Route.post('/password/email', 'Auth/PasswordResetController.sendRequestLinkEmail').validator('ResetUser')
+Route.get('/password/reset/:token','Auth/PasswordResetController.showResetForm')
+Route.post('/password/reset','Auth/PasswordResetController.reset').validator('UpdateUser')
 
 Route.get('/logout', async({ auth, response })=>{
     await auth.logout();
