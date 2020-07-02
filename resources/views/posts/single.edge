@@ -1,0 +1,33 @@
+@layout('layouts.main')
+
+@section('title')
+   {{post.subject}} - Naijaswift Forum
+@endsection
+
+
+@section('content')
+<table style="border-spacing: 0;
+border: 0;
+margin: 0px;
+width: 100%;
+padding: 5px;">
+    <tbody>
+        <tr>
+            <td style="    padding: 6px 8px;
+            background: #e8ece0;
+            text-align: center;
+            border: 1px solid #c8ccc0;
+            border-bottom-width: 0px;
+            overflow: hidden;
+            text-align: left;">
+            <a href="/posts/{{post.slug}}">{{post.subject}}</a>
+            </td>
+        </tr>
+        <tr style="background:#f6f6ec">
+        <p>{{post.body}}</p>
+        </tr>
+    </tbody>
+</table>
+
+
+@endsection

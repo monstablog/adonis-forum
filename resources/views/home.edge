@@ -7,11 +7,17 @@
 
 
 @section('content')
+<a href="/posts/create">Create Post</a>
+@if(old('notification'))
+  <div class="form-error">
+    {{ old('notification') }}
+  </div>
+@endif
 <div class="main-body">
     <div class="clearfix">
         <div class="main-body-post">
             @each(post in posts)
-        >> <a href="{{ post.slug }}">{{ post.subject }}</a> <<	
+        >> <a href="posts/{{ post.slug }}">{{ post.subject }}</a> <<	
             <br>
             <br>
             @endeach

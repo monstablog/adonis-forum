@@ -11,7 +11,7 @@ class PostsSchema extends Schema {
       table.text('body').notNullable()
       table.string('slug', 500).notNullable()
       table.string('image', 191).nullable()
-      table.integer('user_id').notNullable()
+      table.integer('user_id').unsigned().notNullable()
       table.timestamps()
     })
   }

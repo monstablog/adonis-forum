@@ -111,3 +111,20 @@ body {
     text-align: center;
     font-size: 12px;
 }
+.content-title{
+    background: #E8ECE1;
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 0;
+    text-align: center;
+    margin: 10px 0;
+    overflow: hidden;
+}
+.post-left{
+    text-align: left;
+}
+.post-subject{
+    padding: 0 15px;
+    font-size: 22px;
+    font-weight: 800;
+}

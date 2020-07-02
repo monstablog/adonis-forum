@@ -20,6 +20,12 @@ const Route = use('Route')
 
 Route.get('/','PostController.home')
 
+Route.get('/posts/create', 'PostController.create')
+
+Route.get('/posts/:slug','PostController.slug')
+
+Route.post('/posts','PostController.store')
+
 Route.get('/register', 'Auth/RegisterController.showRegisterForm')
 Route.post('/register', 'Auth/RegisterController.create').validator('CreateUser').as('register')
 Route.get('/register/confirm/:token', 'Auth/RegisterController.confirmEmail')

@@ -1,0 +1,27 @@
+@layout('layouts.main')
+
+@section('title')
+    Create - Naijaswift Forum
+@endsection
+
+
+@section('content')
+<p>Please Read This Instruction before you make a post.</p>
+<div class="main-body">
+    <div class="clearfix">
+        <div class="main-login-body">
+<form action="/posts" method="Post">
+    {{ csrfField() }}
+    Subject: <input type="text" name="subject">
+    <br>
+    <br>
+    Body: <textarea name="body" id="" cols="30" rows="10"></textarea>
+    <br>
+    <br>
+    <input type="submit" value="Create Post">
+</form>
+        </div>
+    </div>
+</div>
+
+@endsection
