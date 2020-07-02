@@ -28,6 +28,7 @@
     "@adonisjs/session": "^1.0.27",
     "@adonisjs/shield": "^1.0.8",
     "@adonisjs/validator": "^5.0.6",
+    "luxon": "^1.24.1",
     "mysql": "^2.18.1",
     "random-string": "^0.2.0"
   },
