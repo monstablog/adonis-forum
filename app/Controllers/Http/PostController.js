@@ -1,6 +1,7 @@
 'use strict'
 
 const Post = use('App/Models/Post')
+const Category = use('App/Models/Category')
 
 class PostController {
     async slug ({ params:{slug}, view }) {
@@ -12,16 +13,22 @@ class PostController {
     }
 
     async create({ view }){
-        return view.render('posts.create')
+        const categories = await Category.all()
+        
+
+        return view.render('posts.create',{ categories: categories.toJSON() })
     }
 
-    async store({ request, response, session }) {
-        const post = new Post();
+    async store({ request, response, session, auth }) {
+        const post = request.all()
 
-        post.subject = request.input('subject')
-        post.body = request.input('body')
+        const posted = await auth.user.posts().create({
+            subject: post.subject,
+            body: post.body,
+            category_id: post.category_id,
+        })
 
-        await post.save()
+       
 
         session.flash({ notification: 'Post Added!' })
 

@@ -1,0 +1,24 @@
+@layout('layouts.main')
+
+@section('title')
+    Create Category - Naijaswift Forum
+@endsection
+
+
+@section('content')
+<p>Please Read This Instruction before you make a post.</p>
+<div class="main-body">
+    <div class="clearfix">
+        <div class="main-login-body">
+<form action="/categories" method="Post">
+    {{ csrfField() }}
+    Name: <input type="text" name="name">
+    <br>
+    <br>
+    <input type="submit" value="Create Post">
+</form>
+        </div>
+    </div>
+</div>
+
+@endsection

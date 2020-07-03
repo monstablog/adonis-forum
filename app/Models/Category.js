@@ -3,21 +3,17 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
 
-class Post extends Model {
+class Category extends Model {
     static boot () {
         super.boot()
     
         this.addTrait('@provider:Lucid/Slugify', {
           fields: {
-            slug: 'subject'
+            slug: 'name'
           },
           strategy: 'dbIncrement'
         })
     }
-
-    categories(){
-      return this.belongsTo('App/Models/Category')
-    }
 }
 
-module.exports = Post
+module.exports = Category

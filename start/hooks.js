@@ -14,6 +14,10 @@ hooks.after.providersBooted(async ()=> {
     })
 
     View.global('todayDate', () => {
-        return DateTime.fromJSDate(new Date()).toFormat('LLLL\',\' d cccc y \'at\' h:m a')
+        return DateTime.fromJSDate(new Date()).toFormat('cccc\',\' d LLLL y \'at\' h:m a')
       })
+
+    View.global('postDate', () => {
+        return DateTime.fromJSDate(new Date()).toFormat('LLLL\',\' d cccc y \'at\' h:m a')
+    })
 })

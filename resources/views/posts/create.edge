@@ -15,6 +15,14 @@
     Subject: <input type="text" name="subject">
     <br>
     <br>
+    
+    <select name="category_id" id="">
+        @each(category in categories)
+        ...
+    <option value="{{ category.id }}">{{ category.name }}</option>
+        @endeach
+    </select>
+    
     Body: <textarea name="body" id="" cols="30" rows="10"></textarea>
     <br>
     <br>
