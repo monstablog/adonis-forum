@@ -1,12 +1,18 @@
 'use strict'
 
 const User = use('App/Models/User') 
+const Post = use('App/Models/Post')
 const randomString = require('random-string')
 const Mail = use('Mail')
 
 class RegisterController {
     async showRegisterForm({ view }){
-        return view.render('auth.register')
+        const numbers = await Post.getCount()
+        const totalusers = await User.getCount()
+        return view.render('auth.register',{
+            totalusers: totalusers,
+            numbers: numbers,
+        })
 
     }
 

@@ -13,9 +13,9 @@
                         @loggedIn
                             Welcome, {{ auth.user.username }}
                             <br>
-                            <b>Stats:</b> 150,998 Members, 120,892 Topics
+                            <b>Stats:</b> {{ totalusers }} Members, {{ numbers }} Topics
                             <br>
-                            <b>Date:</b> August 30, 2019 5:32PM
+                            <b>Date:</b> {{ todayDate() }}
                             <br>
                             <li><a href="/logout">Log Out</a></li>
                         @else
@@ -25,9 +25,9 @@
                         <li><a href="/login">Login</a></li> |
                         <li><a href="/register">Register</a></li>
                         <br>
-                        <b>Stats:</b> 150,998 Members, 120,892 Topics
+                        <b>Stats:</b> {{ totalusers }} Members, {{ numbers }} Topics
                         <br>
-                        <b>Date:</b> August 30, 2019 5:32PM
+                        <b>Date:</b> {{ todayDate() }}
                         @endloggedIn
                     </ul>
 

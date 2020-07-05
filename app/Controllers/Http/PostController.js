@@ -4,6 +4,7 @@ const Post = use('App/Models/Post')
 const Category = use('App/Models/Category')
 
 class PostController {
+    
     async slug ({ params:{slug}, view }) {
         const post = await Post.findBy('slug',slug)
 

@@ -105,3 +105,15 @@ input[type=submit]:hover{
     color: red;
     font-size: 12px;
 }
+
+.main-body-post a{
+    color: #171414;
+}
+
+.main-body-post a:hover{
+    color:#cf3333;
+}
+
+.greater-than{
+    font-size: 10px;
+}

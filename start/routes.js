@@ -1,5 +1,7 @@
 'use strict'
 
+const { get } = require('@adonisjs/framework/src/Route/Manager')
+
 /*
 |--------------------------------------------------------------------------
 | Routes
@@ -20,21 +22,24 @@ const Route = use('Route')
 
 Route.get('/','HomeController.home')
 
-Route.get('/posts/create', 'PostController.create')
+Route.group(()=>{
+    Route.get('/create', 'PostController.create')
+    Route.post('/store','PostController.store')
+}).prefix('/posts').middleware('auth')
+
 Route.get('/posts/:slug','PostController.slug')
 
-Route.post('/posts','PostController.store')
 
-Route.get('/categories/create', 'CategoryController.create')
+Route.get('/categories/create', 'CategoryController.create').middleware(['auth'])
 Route.post('/categories','CategoryController.store')
 
-Route.get('/register', 'Auth/RegisterController.showRegisterForm')
+Route.get('/register', 'Auth/RegisterController.showRegisterForm').middleware('stranger')
 Route.post('/register', 'Auth/RegisterController.create').validator('CreateUser').as('register')
 Route.get('/register/confirm/:token', 'Auth/RegisterController.confirmEmail')
 
 
-Route.get('/login', 'Auth/LoginController.showLoginForm')
-Route.post('/login', 'Auth/LoginController.login').validator('LoginUser').as('login')
+Route.get('/login', 'Auth/LoginController.showLoginForm').middleware('stranger')
+Route.post('login', 'Auth/LoginController.login').validator('LoginUser').as('login')
 
 Route.get('/password/reset', 'Auth/PasswordResetController.showLinkResetForm')
 Route.post('/password/email', 'Auth/PasswordResetController.sendRequestLinkEmail').validator('ResetUser')

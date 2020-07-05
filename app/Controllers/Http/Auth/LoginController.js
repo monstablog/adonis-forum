@@ -1,11 +1,17 @@
 'use strict'
 
 const User = use('App/Models/User') 
+const Post = use('App/Models/Post')
 const Hash = use('Hash')
 
 class LoginController {
     async showLoginForm({ view }){
-        return view.render('auth.login')
+        const numbers = await Post.getCount()
+        const totalusers = await User.getCount()
+        return view.render('auth.login',{
+            totalusers: totalusers,
+            numbers: numbers,
+        })
 
     }
 
