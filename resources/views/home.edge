@@ -17,6 +17,11 @@
     {{ old('notification') }}
   </div>
 @endif
+@if(old('update'))
+  <div class="form-error">
+    {{ old('update') }}
+  </div>
+@endif
 <div class="main-body">
     <div class="clearfix">
         <div class="main-body-post">

@@ -9,27 +9,48 @@
 <p>Please Read This Instruction before you make a post.</p>
 <div class="main-body">
     <div class="clearfix">
-        <div class="main-login-body">
-<form action="/posts/store" method="Post">
-    {{ csrfField() }}
-    Subject: <input type="text" name="subject">
-    <br>
-    <br>
-    
-    <select name="category_id" id="">
-        @each(category in categories)
-        ...
-    <option value="{{ category.id }}">{{ category.name }}</option>
-        @endeach
-    </select>
-    
-    Body: <textarea name="body" id="" cols="30" rows="10"></textarea>
-    <br>
-    <br>
-    <input type="submit" value="Create Post">
-</form>
+        <div class="news-form">
+            <form action="/posts/store" method="Post">
+                {{ csrfField() }}
+                <div class="news-subject">
+                    <b>Subject:</b>
+                    </div> <input type="text" name="subject" style="width:98%; height:25px;">
+                <br>
+                <br>
+                <b style="font-size: 14px;">Select Any Post Category: <div style="color:red; font-size:10px;">(Note Please Select Just One Category)</div></b><br>
+                <select class="tag" name="category_id[]" id="main-tags" multiple="multiple" style="width:223.438px;">
+                    @each(category in categories)
+                    ...
+                <option value="{{ category.id }}">{{ category.name }}</option>
+                    @endeach
+                </select>
+                <br><br>
+                
+                <div class="news-subject">
+                    <b>Body:</b>
+                    </div> <textarea name="body" class="editor"></textarea>
+                    <script>
+                        ClassicEditor
+                                .create( document.querySelector( '.editor' ) )
+                                .then( editor => {
+                                    
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+                    </script>
+                <br>
+                <br>
+                <input type="submit" value="Create Post" style="width:12%; height:36px;">
+            </form>
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+      $('.tag').select2();
+  });
+</script>                       
 
 @endsection

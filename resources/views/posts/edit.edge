@@ -1,0 +1,50 @@
+@layout('layouts.main')
+
+@section('title')
+    Edit Post - Naijaswift Forum
+@endsection
+
+@section('content')
+<div class="container">
+	
+</div>
+	<div class="container">
+	<div class="main-body">
+	    <div class="clearfix">
+	        <div class="main-body-post">
+	        	<div class="post-rule">
+	        	<p>1. Please post all threads in the right section, and don't derail threads by posting off topic.</p>
+<p>2. Don't abuse, bully, deliberately insult/provoke, fight, or wish harm to Nairaland members OR THEIR TRIBES.</p>
+<p>3. Don't threaten, support or DEFEND violent acts against any person, tribe, race, animals, or group (e.g. rape).</p>
+</div>
+	        <div class="news-form">
+            <form action="{{ '/posts/' + post.id + '?_method=PUT' }}" id="postform" method="POST">
+                {{ csrfField() }}
+	<div class="news-subject">
+    <b>Subject:</b><input type="text" name="subject" value="{{ post.subject }}" style="width:98%; height:35px;">
+	</div>
+	<br>
+	<div class="news-subject">
+	<b>Body:</b>
+	</div>
+<textarea name="body" class="editor">{{ post.body }}</textarea>
+            <script>
+                ClassicEditor
+                        .create( document.querySelector( '.editor' ) )
+                        .then( editor => {
+                               
+                        } )
+                        .catch( error => {
+                                console.error( error );
+                        } );
+            </script>
+            <br>
+    <div class="news-subject"><input type="submit" style="width:12%; height:36px;"></div>
+</form>
+</div>	
+	        </div>  
+	     </div>                   
+	</div>
+	</div>
+
+@endsection

@@ -3,6 +3,7 @@
 const Post = use('App/Models/Post')
 const User = use('App/Models/User')
 const Category = use('App/Models/Category')
+const Database = use('Database')
 
 class PostController {
     
@@ -10,8 +11,10 @@ class PostController {
         const post = await Post.findBy('slug',slug)
         const numbers = await Post.getCount()
         const totalusers = await User.getCount()
+        const dateCreated = await Database.table('posts').select('id').select(Database.raw('DATE_FORMAT(created_at, "%Y-%m-%d") as date'))
 
         return view.render('posts.single', {
+            dateCreated: dateCreated,
             totalusers: totalusers,
             numbers: numbers,
             post: post
@@ -37,6 +40,28 @@ class PostController {
        
 
         session.flash({ notification: 'Post Added!' })
+
+        return response.redirect('/')
+    }
+
+    async edit({ params, view }){
+        const post = await Post.find(params.id)
+
+        return view.render('posts.edit', {
+            post: post
+        })
+    }
+
+    async update({ params, request, response, session }){
+
+        const post = await Post.find(params.id)
+
+        post.subject = request.input('subject')
+        post.body = request.input('body')
+
+        await post.save()
+
+        session.flash({ update: 'Post Updated!' })
 
         return response.redirect('/')
     }

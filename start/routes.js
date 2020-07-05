@@ -25,9 +25,12 @@ Route.get('/','HomeController.home')
 Route.group(()=>{
     Route.get('/create', 'PostController.create')
     Route.post('/store','PostController.store')
+    Route.get('/edit/:id', 'PostController.edit')
+    Route.put('/:id', 'PostController.update')
 }).prefix('/posts').middleware('auth')
 
 Route.get('/posts/:slug','PostController.slug')
+
 
 
 Route.get('/categories/create', 'CategoryController.create').middleware(['auth'])
@@ -41,7 +44,7 @@ Route.get('/register/confirm/:token', 'Auth/RegisterController.confirmEmail')
 Route.get('/login', 'Auth/LoginController.showLoginForm').middleware('stranger')
 Route.post('login', 'Auth/LoginController.login').validator('LoginUser').as('login')
 
-Route.get('/password/reset', 'Auth/PasswordResetController.showLinkResetForm')
+Route.get('/password/reset', 'Auth/PasswordResetController.showLinkResetForm').middleware('stranger')
 Route.post('/password/email', 'Auth/PasswordResetController.sendRequestLinkEmail').validator('ResetUser')
 Route.get('/password/reset/:token','Auth/PasswordResetController.showResetForm')
 Route.post('/password/reset','Auth/PasswordResetController.reset').validator('UpdateUser')
