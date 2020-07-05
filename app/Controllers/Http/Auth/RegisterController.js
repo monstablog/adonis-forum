@@ -30,7 +30,7 @@ class RegisterController {
             message
                 .to(user.email)
                 .from('support@naijaswift.com')
-                .subject('Please confirm your email address')
+                .subject('Naijaswift Forum - Email Confirmation')
         })
 
         // Success Message

@@ -1,14 +1,19 @@
 'use strict'
 
 const Post = use('App/Models/Post')
+const User = use('App/Models/User')
 const Category = use('App/Models/Category')
 
 class PostController {
     
     async slug ({ params:{slug}, view }) {
         const post = await Post.findBy('slug',slug)
+        const numbers = await Post.getCount()
+        const totalusers = await User.getCount()
 
         return view.render('posts.single', {
+            totalusers: totalusers,
+            numbers: numbers,
             post: post
         })
     }

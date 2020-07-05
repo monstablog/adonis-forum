@@ -29,7 +29,7 @@ class PasswordResetController {
         await Mail.send('auth.emails.password_reset', mailData, message => {
             message.to(user.email)
             .from('support@naijaswift.com')
-            .subject('Password Reset Link')
+            .subject('Naijaswift Forum - Password Reset Link')
         })
 
         session.flash({

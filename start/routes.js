@@ -50,3 +50,6 @@ Route.get('/logout', async({ auth, response })=>{
     await auth.logout();
     return response.redirect('/')
 })
+
+
+Route.get('/category/news', 'MainCategoryController.index')

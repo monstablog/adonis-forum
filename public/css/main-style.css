@@ -1,30 +1,31 @@
 body {
     background: url('https://nnu.ng/sitefront/img/bg.png') repeat;
-    font-family: Arial,Helvetica,sans-serif;
+    font-family: Arial, sans-serif;
     font-size: 14px;
 }
 .container {
     width: 100%;
-    max-width: 1000px;
+    max-width: 900px;
     margin: 0 auto;
 }
 .main-content {
-    background: #f6f6ed;
+    background: #E8ECE1;
     margin-top:12px;
     padding: 3px;
     border: 1px solid #444;
     border-radius: 10px;
 }
 .main-body{
-    background: #f6f6ed;
+    background: #E8ECE1;
     padding: 3px;
     border: 1px solid #444;
     border-radius: 10px;
     margin-top:11px;
+    overflow:hidden;
 }
 .main-log{
 	margin-top:-30px;
-    background: #F6F6ED;
+    background: #E8ECE1;
     border-radius: 10px;
     padding: 0;
     text-align: center;
@@ -33,12 +34,11 @@ body {
 .main-Left {
     padding: 5px 0;
     margin: 0;
+    font-weight: 700
 }
 .main-Left-r {
     padding: 5px 0;
     margin: 0;
-    border-top: 1px solid #444;
-    border-bottom: 1px solid #444;
     background-color: #E8ECE1;
 }
 .main-Left li {
@@ -52,10 +52,6 @@ body {
     padding: 0 5px;
     line-height: 1.8;
     font-size: 14px;
-    text-decoration: none;
-}
-.main-Left a:hover {
-    text-decoration: underline;
 }
 .main-Left-r li {
     display: inline-block;
@@ -68,6 +64,9 @@ body {
     padding: 0 5px;
     line-height: 1.8;
     font-size: 14px;
+}
+.main-left-r a:hover {
+    color: #cf3333;
 }
 .main-Left-anon {
     padding: 5px 0;
@@ -100,6 +99,15 @@ body {
     margin-top: 9px;
     margin-bottom: 9px;
 }
+.main-body-content{
+    text-align: center;
+    font-size: 15px;
+    margin-top: 9px;
+    margin-bottom: 9px;
+}
+.main-body-content h5{
+    padding: 0 15px;
+}
 .main-login-body{
     text-align: center;
     font-size: 15px;
@@ -111,20 +119,95 @@ body {
     text-align: center;
     font-size: 12px;
 }
-.content-title{
-    background: #E8ECE1;
-    border: 1px solid #444;
-    border-radius: 10px;
-    padding: 0;
-    text-align: center;
-    margin: 10px 0;
-    overflow: hidden;
+.text-left{
+    text-align:left!important;
 }
-.post-left{
-    text-align: left;
+.post-content{
+    background-color:#f6f6ed;
 }
-.post-subject{
+.post-title{
     padding: 0 15px;
-    font-size: 22px;
-    font-weight: 800;
+}
+.edit-title{
+    padding: 0 15px;
+    margin-top: 29px;
+}
+.post-body{
+    background: #ffffff;
+    padding: 15px;
+    margin:-2px;
+    margin-bottom: -12px;
+    font-weight: 0;
+}
+.delete{
+    background: #ffffff;
+    padding: 16px;
+    margin: 55px;
+    margin-bottom: -19px;
+    font-weight: 0;
+    margin-top: -48px;
+    padding-left: 19px;
+}
+.comment-edit{
+    background: #ffffff;
+    padding: 15px;
+    margin:-2px;
+    margin-bottom: -12px;
+    font-weight: 0;
+}
+.comment-delete{
+    padding-left: 14px;
+    padding-top: 18px;
+}
+.post-body p{
+    line-height: 1.5;
+    font-weight: 0;
+}
+.home-main{  
+    border-bottom: 1px solid #444;
+    margin: 10px -3px;
+}
+.post-real a{
+    color:#cf3333;
+}
+.new-topic{
+    text-align: center;
+    margin-top: 9px;
+    font-size:14px;
+}
+.news-subject{
+    text-align:left;
+}
+#postform input[type="text"]{
+    min-width: 80px;
+    margin: 0px auto;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.post-body{
+    text-align:left;
+}
+.ck.ck-editor__main>.ck-editor__editable:not(.ck-focused){
+height:300px;
+font-weight: 100
+}
+.ck.ck-editor__main>.ck-editor__editable{
+height:300px;
+font-weight: 100
+}
+.post-rule{
+    text-align: left;
+    font-size: 14px;
+    font-weight: 100;
+}
+.reply{
+    background: #ffffff;
+    padding: 15px;
+    margin: -8px;
+    margin-bottom: -12px;
+    font-weight: 0;
+    margin-top: -49px;
+    padding-left: 69px;
 }
