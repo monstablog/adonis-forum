@@ -7,16 +7,16 @@
 
 @section('content')
 <div class="new-topic">
-    <b style="font-size: 15px">Category: <a href="/">News</a></b>
+<b style="font-size: 15px">NaiJaswift Forum / <a href="/">{{ post.category.name }}</a> / <a href="{{ post.slug }}">{{ post.subject }}</a></b>
  </div>
 
  <div class="main-body">
     <div class="clearfix">
         <div class="main-body-content text-left">
             <h1 style="font-size: 20px;font-weight: 800;" class="post-title"> {{ post.subject }} </h1>
-            <h5>By <a href=""> [{{ post.user.username }}] </a> &nbsp; [{{ post.created_at }}] </h5>
+            <h5>By <a href=""> [{{ post.user.username }}] </a> &nbsp; at &nbsp; [{{ post.created_at }}] </h5>
             <div class="post-body">
-            <p> {{ post.body }} </p>
+            <p> {{{ post.body }}} </p>
             </div>
            
             <div class="all-edit">

@@ -3,21 +3,18 @@
 const Post = use('App/Models/Post')
 const User = use('App/Models/User')
 const Category = use('App/Models/Category')
-const Database = use('Database')
 
 class PostController {
     
     async slug ({ params:{slug}, view }) {
-        const post = await Post.findBy('slug',slug)
+        const post = await Post.query().where('slug', slug).with('user').with('category').first()
         const numbers = await Post.getCount()
         const totalusers = await User.getCount()
-        const dateCreated = await Database.table('posts').select('id').select(Database.raw('DATE_FORMAT(created_at, "%Y-%m-%d") as date'))
 
         return view.render('posts.single', {
-            dateCreated: dateCreated,
             totalusers: totalusers,
             numbers: numbers,
-            post: post
+            post: post.toJSON() 
         })
     }
 

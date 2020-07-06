@@ -162,6 +162,7 @@ body {
 .post-body p{
     line-height: 1.5;
     font-weight: 0;
+    text-align: justify;
 }
 .home-main{  
     border-bottom: 1px solid #444;
@@ -174,6 +175,14 @@ body {
     text-align: center;
     margin-top: 9px;
     font-size:14px;
+    font-weight: bold;
+}
+.new-topic a{
+    text-decoration: none;
+    color: #301848;
+}
+.new-topic a:hover{
+    text-decoration: underline;
 }
 .news-subject{
     text-align:left;

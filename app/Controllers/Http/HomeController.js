@@ -26,6 +26,7 @@ class HomeController {
             posts: posts.toJSON() 
         })
     }
+  
 }
 
 module.exports = HomeController

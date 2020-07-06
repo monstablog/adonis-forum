@@ -14,6 +14,10 @@ class Category extends Model {
           strategy: 'dbIncrement'
         })
     }
+
+    post(){
+      return this.belongsTo('App/Models/Post')
+    }
 }
 
 module.exports = Category
