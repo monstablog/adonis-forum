@@ -2,9 +2,10 @@
 
 const Post = use('App/Models/Post')
 const User = use('App/Models/User')
+const Category = use('App/Models/Category')
 
 class HomeController {
-    async home ({ view }){
+    async home ({ params:{id}, view }){
         //Fetch a post
         const posts = await Post.query().orderBy('id','desc').fetch() 
         const numbers = await Post.getCount()

@@ -1,0 +1,50 @@
+@layout('layouts.main')
+
+@section('title')
+    New Post - {{ category.name }} , Naijaswift Forum
+@endsection
+
+
+@section('content')
+<p>Please Read This Instruction before you make a post.</p>
+<div class="main-body">
+    <div class="clearfix">
+        <div class="news-form">
+            <form action="/posts/store" method="Post">
+                {{ csrfField() }}
+                <div class="news-subject">
+                    <b>Subject:</b>
+                    </div> <input type="text" name="subject" style="width:98%; height:25px;">
+                <br>
+                <br>
+                <input type="hidden" name="category_id" value="{{ category.id }}">
+                <br><br>
+                
+                <div class="news-subject">
+                    <b>Body:</b>
+                    </div> <textarea name="body" class="editor"></textarea>
+                    <script>
+                        ClassicEditor
+                                .create( document.querySelector( '.editor' ) )
+                                .then( editor => {
+                                    
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+                    </script>
+                <br>
+                <br>
+                <input type="submit" value="Create Post" style="width:12%; height:36px;">
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+      $('.tag').select2();
+  });
+</script>                       
+
+@endsection

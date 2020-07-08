@@ -31,6 +31,8 @@ Route.group(()=>{
 
 Route.get('/posts/:slug','PostController.slug')
 
+Route.get('create/:id', 'PostController.just')
+
 
 
 Route.get('/categories/create', 'CategoryController.create').middleware(['auth'])

@@ -3,6 +3,7 @@
 const Post = use('App/Models/Post')
 const User = use('App/Models/User')
 const Category = use('App/Models/Category')
+const Database = use('Database')
 
 class PostController {
     
@@ -23,6 +24,17 @@ class PostController {
         
 
         return view.render('posts.create',{ categories: categories.toJSON() })
+    }
+
+    async just({ params:{id}, view  }){
+       
+        const category = await Category.findBy('id', id)
+
+        return view.render('posts.new-topic', {
+          
+            category: category.toJSON()
+        })
+
     }
 
     async store({ request, response, session, auth }) {
