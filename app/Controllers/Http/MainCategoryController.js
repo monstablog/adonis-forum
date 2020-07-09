@@ -4,6 +4,9 @@
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
+const Category = use('App/Models/Category')
+const Post = use('App/Models/Post')
+
 /**
  * Resourceful controller for interacting with maincategories
  */
@@ -17,8 +20,11 @@ class MainCategoryController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async index ({ request, response, view }) {
-    return view.render('category.news')
+  async index ({ params:{slug}, view }) {
+    const category = await Category.query().orderBy('id','desc').where('slug', slug).with('posts').first()
+      return view.render('category.news', {
+        category: category.toJSON()
+      })
   }
 
   /**

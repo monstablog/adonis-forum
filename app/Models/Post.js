@@ -25,8 +25,8 @@ class Post extends Model {
       }
     
 
-    category(){
-      return this.belongsTo('App/Models/Category')
+    categories(){
+      return this.belongsToMany('App/Models/Category')
     }
 
     user(){

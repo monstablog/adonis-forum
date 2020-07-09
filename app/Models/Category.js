@@ -15,8 +15,8 @@ class Category extends Model {
         })
     }
 
-    post(){
-      return this.belongsTo('App/Models/Post')
+    posts(){
+      return this.belongsToMany('App/Models/Post')
     }
 }
 

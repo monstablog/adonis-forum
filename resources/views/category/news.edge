@@ -1,0 +1,26 @@
+@layout('layouts.main')
+
+@section('title')
+    {{ category.name }} - Nigeria - Forum
+@endsection
+
+
+@section('content')
+@loggedIn
+<div class="new-topic">
+    <a href="/create/{{ category.id }}">(Create New Topic)</a>
+</div>
+@endloggedIn
+<div class="main-body">
+    <div class="clearfix">
+        <div class="main-body-post">
+            @each(post in category.posts)
+        <span class="greater-than">>></span> <a href="posts/{{ post.slug }}">{{ post.subject }}</a> <span class="greater-than"><<</span> 	
+            <br>
+            <br>
+            @endeach
+        </div>	
+    </div>
+    
+</div>
+@endsection

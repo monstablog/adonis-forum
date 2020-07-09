@@ -56,5 +56,5 @@ Route.get('/logout', async({ auth, response })=>{
     return response.redirect('/')
 })
 
-
-Route.get('/category/news', 'MainCategoryController.index')
+//Category Link
+Route.get('/:slug', 'MainCategoryController.index')

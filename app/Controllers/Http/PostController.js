@@ -8,7 +8,7 @@ const Database = use('Database')
 class PostController {
     
     async slug ({ params:{slug}, view }) {
-        const post = await Post.query().where('slug', slug).with('user').with('category').first()
+        const post = await Post.query().where('slug', slug).with('user').with('categories').first()
         const numbers = await Post.getCount()
         const totalusers = await User.getCount()
 
@@ -38,15 +38,17 @@ class PostController {
     }
 
     async store({ request, response, session, auth }) {
-        const post = request.all()
+        const { subject, body, categories } = request.all()
 
         const posted = await auth.user.posts().create({
-            subject: post.subject,
-            body: post.body,
-            category_id: post.category_id,
+            subject,
+            body,
         })
 
-       
+        if(categories && categories.length > 0  ){
+            await posted.categories().attach(categories)
+            posted.categories = await posted.categories().fetch()
+        }
 
         session.flash({ notification: 'Post Added!' })
 
